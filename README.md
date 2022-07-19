@@ -9,7 +9,7 @@
 Misc methods:
 ****************
 
-ord()			  ---> Returns an integer representing the unicode character
+ord()			  ---> Returns an integer representing the unicode character.
 chr()			  ---> Returns a string representing a character whose unicode point is integer
 zip()			  ---> Returns an iterator of tuples where the ith element is from each of the argument sequence
 			       x=[1,2,3]
@@ -58,7 +58,7 @@ Enumerate
 Allows us to loop over with automatic Counter
 e.g.
 my_list = ['apple', 'banana', 'grapes', 'pear']
-for c, value in enumerate(my_list, 1):
+for c, value in enumerate(my_list, 1):    <----start at 1 instead of 0
     print(c, value)
 
 ********************
@@ -72,6 +72,15 @@ Dictionary Comprehension:
 **************************
 
 dict.items() --> returns set of tuples
+dictionary is a collection to key value tuples
+
+>>> d
+{'a': 1, 'b': 2, 'c': 3}
+>>> d.items()
+dict_items([('a', 1), ('b', 2), ('c', 3)])
+
+
+
 
 dict= { k:v for (k,v) in dict.items() if condition }
 
@@ -92,7 +101,7 @@ key_list= [ k for (k,v) in sorted(d1.items(),key=lambda x : x[1],reverse=True) ]
 ******************
 Ordered Dictionary
 ******************
-
+from collections import OrderedDict
 Stores in the same order inserted
 
 od=Ordereddict()
