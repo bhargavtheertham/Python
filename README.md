@@ -72,7 +72,7 @@ Dictionary Comprehension:
 **************************
 
 dict.items() --> returns set of tuples
-dictionary is a collection to key value tuples
+                 is a collection to key value tuples
 
 >>> d
 {'a': 1, 'b': 2, 'c': 3}
@@ -98,6 +98,16 @@ d2 = sorted(d1.keys())
 get the key sorted by value as list:
 key_list= [ k for (k,v) in sorted(d1.items(),key=lambda x : x[1]) ]    # x[1] is value, x[0] is key; sorted returns tuple
 key_list= [ k for (k,v) in sorted(d1.items(),key=lambda x : x[1],reverse=True) ]  
+
+using a custom function for sorting
+
+dsort = {k:v for (k,v) in sorted(d1.items(),key=lambda x:tup(x),reverse=True) }
+
+where tup is
+
+def tup(d):
+    return d[1] # or some other logic
+
 ******************
 Ordered Dictionary
 ******************
@@ -156,6 +166,14 @@ c=Counter(a=4, b=2, c=0,d=2)
 d=Counter(a=1,b=2,c=3,d=4)
 f=c.subtract(d)
 
+list(c) = list unique elements
+set(c) = converts to a set
+c.clear() = clear the counters
+
+most_common[n] = returns the list of n most common elements and their counts 
+total = computes the sum of the Counts.
+
+
 Get sum of counts of values for the keys
 sum(f.values())
 
@@ -166,6 +184,36 @@ dict(f)
 Most Common
 
 Counter(a).most_common(3)   ---> 3 most common k,v pairs
+
+Deque (Deck - double ended queue)
+
+>>> d=deque("ghi")
+>>> d
+deque(['g', 'h', 'i'])
+>>> d.append("j")
+>>> d.appendleft("f")
+>>> d
+deque(['f', 'g', 'h', 'i', 'j'])
+>>> d.pop(). <----pop from right
+'j'
+>>> d
+deque(['f', 'g', 'h'])
+>>> d.popleft() <---- pop from left
+'f'
+>>> d
+deque(['g', 'h']). 
+>>> d.extend("ijkl") <--------- adds elements to the right
+>>> d
+deque(['g', 'h', 'i', 'j', 'k', 'l'])
+>>> d[0].  <---- first element
+'g'
+>>> d[-1] <------last element
+'l'
+>>> d[1]
+'h'
+>>> d[-2]
+'k'
+
 
 
 Return vs yield ( generator)
