@@ -547,10 +547,10 @@ CSV module
 csv.reader     ----> Return a reader object which will iterate over lines in the given csv
 		     >>> with open('eggs.csv', newline='') as csvfile:
 			...     spamreader = csv.reader(csvfile, delimiter=' ', quotechar='|')
-csv.write	---> Returns a writer object responsible for writing delimited data
+csv.writer	---> Returns a writer object responsible for writing delimited data
 		    >>>  with open('writedata.csv') as csvfile:
 				csvwriter=csv.writer(csvfile,delmiter=',')  <---- delimiter
-				csvwriter.writerow('Spam','lovely spam','wonderful spam')  <---  writerow writes the row.
+				csvwriter.writerow(['Spam','lovely spam','wonderful spam'])  <---  writerow writes the row.
 
 csv.DictReader ---> maps the information in each row into a OrderedDict whose keys are given
 		    by the optional fields
@@ -601,8 +601,8 @@ os.walk()     ---> we can pass a path to this function and get access to all its
 >>> for root, dirs, files in os.walk(path,topdown=True): # topdown = True means parent directory is listed before children
         print(root)
 os.path       --->
-	---> os.path.basename
-	---> os.path.dirname
+	---> os.path.basename --> second element of the pair returned by split()
+	---> os.path.dirname --> first element of the pair returned by split()
 	---> os.path.exists  --> Tells you if a path exists or not  e.g os.path.exists(r'C:\Python27\Tools\pynche\ChipViewer.py')
 	---> os.path.isfile(' ')
 	---> os.path.isdir(' ')
@@ -617,6 +617,27 @@ os.stat (filename)
 
 
 os.time ---> time.sleep(5)
+
+
+### Example to Get File Modification and Creation Time
+
+import datetime
+import os
+
+# Path to the file
+path = r"E:\demos\files_demos\sample.txt"
+
+# file modification timestamp of a file
+m_time = os.path.getmtime(path)
+# convert timestamp into DateTime object
+dt_m = datetime.datetime.fromtimestamp(m_time)
+print('Modified on:', dt_m)
+
+# file creation timestamp in float
+c_time = os.path.getctime(path)
+# convert creation timestamp into DateTime object
+dt_c = datetime.datetime.fromtimestamp(c_time)
+print('Created on:', dt_c)
 
 
 
