@@ -261,7 +261,7 @@ else:
     print("no match")
 
 
-Search:
+Search: ---> ONLY FIRST OCCURENCE
 result = re.search(pat, str) ---> Scan through string looking for a location where the regular expression pattern produces a match,
 and return a corresponding MatchObject instance e.g Below output will give abc since it search scans through the whole string
 a='abc'
@@ -271,6 +271,9 @@ if match:
     print(match.group())
 else:
     print("no match")
+
+findall() --> GIVES ALL MATCHES
+fullmatch() --> the entire string has to match not partial
 
 
 Explore Groups():
